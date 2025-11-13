@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 nov. 2025 à 15:36
+-- Généré le : jeu. 13 nov. 2025 à 15:58
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -45,6 +45,17 @@ CREATE TABLE `musique` (
   `Album_Musique` varchar(50) DEFAULT NULL,
   `Duree_Musique` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `musique`
+--
+
+INSERT INTO `musique` (`Id_Musique`, `Titre_Musique`, `Artiste_Musique`, `Album_Musique`, `Duree_Musique`) VALUES
+(1, 'Prayer in C', 'Lilly Wood and the Prick & Robin Schulz', 'Invincible Friends', 158),
+(2, 'Habits (Stay High)', 'Tove Lo', 'Truth Serum', 209),
+(3, 'Dangerous', 'David Guetta feat. Sam Martin', NULL, 203),
+(4, 'Uptown Funk', 'Mark Ronson feat. Bruno Mars', NULL, 270),
+(5, 'Take Me to Church', 'Hozier', NULL, 243);
 
 -- --------------------------------------------------------
 
