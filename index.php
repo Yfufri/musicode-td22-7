@@ -18,6 +18,7 @@ var_dump($_ENV);
         <link href="./style.css" rel="stylesheet" />
     </head>
     <body>
+        <?php require "./header.php"?>
         <h1>HELLO THEO</h1>
         
     </body>
