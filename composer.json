@@ -1,0 +1,12 @@
+{
+    "name": "td22/grp7",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Groupe 7"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
