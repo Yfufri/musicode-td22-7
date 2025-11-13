@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 nov. 2025 à 15:58
+-- Généré le : jeu. 13 nov. 2025 à 16:08
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bibliotheque` (
   `Id_Musique` smallint(6) NOT NULL,
-  `Id_Utilisateur` smallint(6) NOT NULL
+  `Id_Utilisateur` smallint(6) NOT NULL,
+  `Note` tinyint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
