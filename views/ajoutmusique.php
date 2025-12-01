@@ -1,6 +1,4 @@
-<a href="/catalogue">
-    <span class="material-symbols-outlined arrow-left">arrow_left</span>
-    Retour au catalogue</a>
+<a href="/catalogue">⬅️ Retour au catalogue</a><br><br>
 <h1>Ajouter une Musique</h1>
 <a>Complétez les informations ci-dessous pour publier un nouveau morceau dans le catalogue.</a>
 <form action="/ajoutmusique" method="POST" enctype="multipart/form-data">
