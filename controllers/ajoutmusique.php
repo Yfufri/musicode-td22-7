@@ -1,2 +1,6 @@
-<?php include dirname(__DIR__) . '/views/ajoutmusique.php';?>
-<title>Ajout d'une Musique</title>
+<?php 
+$title = 'Ajouter une Musique';
+require('views/header.php');
+require('views/ajoutmusique.php');
+require('views/footer.php');
+?>
