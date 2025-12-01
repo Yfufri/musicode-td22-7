@@ -1,5 +1,5 @@
 <section>
-    <h3>Mon compte</h2>
+    <h2>Mon compte</h2>
     <div class="monCompte">
         <form action="" method="POST">
             <div class>
