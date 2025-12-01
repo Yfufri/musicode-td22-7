@@ -13,8 +13,8 @@
     <label for="album">Album </label>
     <input type="Optionnel " id="album" name="album"><br><br>
 
-    <label for="genre">Durée </label>
-    <input type1="Minutes " id="duration" name="duration"> <t>:</t>
+    <label for="genre">Durée *</label><br>
+    <input type1="Minutes " id="duration" name="duration"> <t>: </t>
     <input type2="Secondes " id="duration" name="duration"><br><br>
 
     <input type="submit" value="Enregistrer la Musique">
