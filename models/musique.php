@@ -1,17 +1,70 @@
 <?php
 
-function getAllMusic($conn){
+function getAllMusic($conn)
+{
     $sql = "SELECT Id_Musique, Titre_Musique as titre, Artiste_Musique as artist, Album_Musique as album, Duree_Musique as duration FROM musique";
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    // C'est pour avoir un tableau minute/seconde
-    $seconds = (int)$row['duration'];
-    $row['duration'] = [
-        'minutes' => intdiv($seconds, 60),
-        'seconds' => $seconds % 60
-    ];
-    return $row;
+    foreach ($rows as &$row) {
+        $seconds = (int) $row['duration'];
+        $row['duration'] = [
+            'minutes' => intdiv($seconds, 60),
+            'seconds' => $seconds % 60
+        ];
+    }
+
+    return $rows;
 }
 
+function getAllMusicButMine($conn, $userId)
+{
+    $sql = "SELECT m.*
+    FROM musique m
+    LEFT JOIN bibliotheque b
+    ON m.Id_Musique = b.Id_Musique
+    AND b.Id_Utilisateur = ?
+    WHERE b.Id_Utilisateur IS NULL;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+    return $rows;
+}
+
+function getAllMyMusic($conn, $userId)
+{
+    $sql = "SELECT Id_Musique, Titre_Musique as titre, Artiste_Musique as artist, Album_Musique as album, Duree_Musique as duration, Note
+    FROM musique INNER JOIN bibliotheque ON musique.Id_Musique = bibliotheque.Id_Musique
+    WHERE bibliotheque.Id_Utilisateur = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+    foreach ($rows as &$row) {
+        $seconds = (int) $row['duration'];
+        $row['duration'] = [
+            'minutes' => intdiv($seconds, 60),
+            'seconds' => $seconds % 60
+        ];
+    }
+    return $rows;
+}
+
+function publishMusic($conn, $titre, $artist, $album = null, $durationMin, $durationSec)
+{
+    $sql = "INSERT INTO musique (Titre_Musique, Artiste_Musique, Album_Musique, Duree_Musique)
+            VALUES (?,?,?,?)";
+    $duration = $durationMin * 60 + $durationSec;
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $titre, $artist, $album, $duration);
+    $stmt->execute();
+    $id = $stmt->insert_id;
+    $stmt->close();
+    return $id;
+}
 ?>

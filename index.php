@@ -5,6 +5,9 @@ require_once 'vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+require_once 'models/bddconnection.php';
+$conn = openCon();
+
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
 switch ($action) {
