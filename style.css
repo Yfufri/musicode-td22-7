@@ -54,6 +54,28 @@ nav {
     display: flex;
     gap: 30px;
 }
+.monCompte{
+    display: flex;
+}
+
+.monCompte input{
+        border-radius: 8px;
+        border-color: #CBD5E1;
+}
+.monCompte .btnMettreAJourMDP input{
+    color: white;
+    height: 40px;
+    width: 446px;
+    background: linear-gradient(90deg, #C084FC 0%, #F472B6 100%);
+}
+
+.inputMdp{
+    display: block;
+}
+.filsInputMdp{
+    display: inline-block;
+    float: left;
+}
 
 .gridCards {
     display: grid;
