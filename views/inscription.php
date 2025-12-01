@@ -24,16 +24,12 @@
             <input type="password" id="password" name="password" required>
         </div>
 
-        <?php if (isset($_GET['error']) && $_GET['error'] == 1) {
-            echo "<div class='error'>Identifiant ou mot de passe incorrect.</div>";
-        } ?>
-
         <button type="submit" class="btn-creation">Créer mon compte</button>
 
     </form>
 
     <div class="txt-connection">
-        Déjà inscrit ? <a href="?action=seconnecter" class="link-connection">Se connecter</a>
+        Déjà inscrit ? <a href="?action=connexion" class="link-connection">Se connecter</a>
     </div>
 
 </section>
