@@ -1,7 +1,7 @@
 <a href="/catalogue">⬅️ Retour au catalogue</a><br><br>
-<h1>Ajouter une Musique</h1>
+<h2>Ajouter une Musique</h2>
 <a>Complétez les informations ci-dessous pour publier un nouveau morceau dans le catalogue.</a>
-<form action="/ajoutmusique" method="POST" enctype="multipart/form-data">
+<form action="mabibliotheque" method="POST" enctype="multipart/form-data">
     <label for="title">Titre *</label>
     <input type=" " id="title" name="title" required><br><br>
 
