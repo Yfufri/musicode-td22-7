@@ -20,7 +20,7 @@ $dotenv->load();
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <?php require "./header.php"?>
+        <?php require "./views/header.php"?>
         <h1>HELLO THEO</h1>
         <?php var_dump($_ENV); ?>
         <?php require "./footer.php"?>
