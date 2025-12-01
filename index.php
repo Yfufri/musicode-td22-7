@@ -31,9 +31,4 @@ switch ($action) {
         require 'controllers/musique.php';
         break;
 }
-
-
-
-
-
 ?>
