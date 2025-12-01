@@ -31,8 +31,7 @@ switch ($action) {
         require 'controllers/musique.php';
         break;
 }
-
-<<<<<<< HEAD
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,13 +47,6 @@ switch ($action) {
         <?php require "./views/header.php"?>
         <h1>HELLO THEO</h1>
         <?php var_dump($_ENV); ?>
-        <?php require "./footer.php"?>
+        <?php require "./views/footer.php"?>
     </body>
 </html>
-=======
-
-
-
-
-?>
->>>>>>> 25272a94536cb35e1f4378d8d8976f0c8fab5ff3
