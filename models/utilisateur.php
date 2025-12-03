@@ -13,9 +13,24 @@ function ConnectionUser($conn, $mail)
 
 function InscriptionUser($conn, $mail, $nom, $mdp)
 {
+    // Vérifier si l'email existe déjà
+    $sqlCheck = "SELECT Id_Utilisateur FROM utilisateur WHERE Mail_Utilisateur = ?";
+    $stmtCheck = $conn->prepare($sqlCheck);
+    $stmtCheck->bind_param("s", $mail);
+    $stmtCheck->execute();
+    $resultCheck = $stmtCheck->get_result();
+
+    if ($resultCheck->num_rows > 0) {
+        $stmtCheck->close();
+        return false;
+    }
+    $stmtCheck->close();
+
+    // Insérer le nouvel utilisateur
+    $mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
     $sql = "INSERT INTO utilisateur (Nom_Utilisateur, Mail_Utilisateur, Mot_De_Passe_Utilisateur) VALUES (?,?,?);";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $mail, $nom, $mdp);
+    $stmt->bind_param("sss", $nom, $mail, $mdpHash);
     if ($stmt->execute()) {
         return true;
     } else {

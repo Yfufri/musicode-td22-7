@@ -3,8 +3,8 @@
     <div class="monCompte">
         <form action="" method="POST">
             <div class>
-                <label for="nomAff" >Nom d'affichage</label>
-                <input type="text" id="nomAff" name="nomAff" required>
+                <label for="nom" >Nom d'affichage</label>
+                <input type="text" id="nom" name="nom" required>
             </div>
             <div class="inputMdp">
                 <div class="filsInputMdp">

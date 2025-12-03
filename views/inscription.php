@@ -5,7 +5,7 @@
     <form method="POST">
 
         <div class="form-part">
-            <label for="mail">Nom d'affichage</label>
+            <label for="nom">Nom d'affichage</label>
             <input type="text" id="nom" name="nom" required>
         </div>
 
