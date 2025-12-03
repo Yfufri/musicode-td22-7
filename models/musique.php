@@ -67,4 +67,30 @@ function publishMusic($conn, $titre, $artist, $album = null, $durationMin, $dura
     $stmt->close();
     return $id;
 }
+
+function addMusicToUser($conn, $userId, $musicId)
+{
+    $sql = "INSERT INTO bibliotheque (Id_Utilisateur, Id_Musique) VALUES (?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $userId, $musicId);
+    return $stmt->execute();
+}
+
+function deleteMusicFromUser($conn, $userId, $musicId){
+    $sql = "DELETE FROM bibliotheque WHERE Id_Utilisateur = ? AND Id_Musique = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $userId, $musicId);
+}
+
+function getOneMusic($conn, $musicId)
+{
+    $sql = "SELECT Id_Musique, Titre_Musique as titre, Artiste_Musique as artist, Album_Musique as album, Duree_Musique as duration FROM musique WHERE Id_Musique = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $musicId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $stmt->close();
+    return $row;
+}
 ?>
