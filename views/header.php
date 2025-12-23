@@ -43,8 +43,15 @@
             </div>
         </a>
         <nav>
-            <a href="home">Catalogue</a>
-            <a href="connexion">Connexion</a>
-            <a href="inscription">Inscription</a>
+            <?php if (isset($_SESSION['user'])): ?>
+                <a href="home">Catalogue</a>
+                <a href="bibliotheque">Ma bibliothèque</a>
+                <a href="moncompte">Mon compte</a>
+                <a href="deconnexion">Déconnexion</a>
+            <?php else: ?>
+                <a href="home">Catalogue</a>
+                <a href="connexion">Connexion</a>
+                <a href="inscription">Inscription</a>
+            <?php endif; ?>
         </nav>
     </header>
