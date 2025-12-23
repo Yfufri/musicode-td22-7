@@ -1,6 +1,13 @@
 <?php
 $mail = $_POST['mail'] ?? null;
 $password = $_POST['password'] ?? null;
+$error = null;
+$notif = null;
+
+if (isset($_SESSION['notif'])) {
+    $notif = $_SESSION['notif'];
+    unset($_SESSION['notif']);
+}
 
 if ($mail != null && $password != null) {
     global $conn;
@@ -10,11 +17,12 @@ if ($mail != null && $password != null) {
         if (password_verify($password, $user['Mot_De_Passe_Utilisateur'])) {
             $_SESSION['user'] = $user;
             header("Location: index.php?action=home");
+            exit();
         } else {
-            header("Location: index.php?action=connexion&error=1");
+            $error = "Adresse e-mail ou mot de passe incorrect.";
         }
     } else {
-        header("Location: index.php?action=connexion&error=1");
+        $error = "Adresse e-mail ou mot de passe incorrect.";
     }
 }
 

@@ -114,3 +114,12 @@ footer {
     background: white;
     z-index: 999;
 }
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.success-message{
+    color : green;
+}

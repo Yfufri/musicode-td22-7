@@ -2,6 +2,18 @@
 
     <h2>Connexion</h2>
 
+    <?php if (isset($notif)): ?>
+        <div class="success-message">
+            <?= htmlspecialchars($notif) ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($error)): ?>
+        <div class="error-message">
+            <?= htmlspecialchars($error) ?>
+        </div>
+    <?php endif; ?>
+
     <form method="POST">
 
         <div class="form-part">
@@ -14,9 +26,6 @@
             <input type="password" id="password" name="password" required>
         </div>
 
-        <?php if (isset($_GET['error']) && $_GET['error'] == 1) {
-            echo "<div class='error'>Identifiant ou mot de passe incorrect.</div>";
-        } ?>
 
         <button type="submit" class="btn-connection">Se connecter</button>
 

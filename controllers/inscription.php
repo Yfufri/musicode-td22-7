@@ -1,13 +1,23 @@
 <?php
 $mail = $_POST['mail'] ?? null;
 $password = $_POST['password'] ?? null;
+$password_confirm = $_POST['password_confirm'] ?? null;
 $nom = $_POST['nom'] ?? null;
+$error = null;
 
-if ($mail != null && $password != null && $nom != null) {
-    require_once 'models/utilisateur.php';
-    global $conn;
-    InscriptionUser($conn, $mail, $nom, $password);
-    header("Location: index.php?action=connexion&notif=1");
+if ($mail != null && $password != null && $nom != null && $password_confirm != null) {
+    if ($password === $password_confirm) {
+        require_once 'models/utilisateur.php';
+        global $conn;
+        InscriptionUser($conn, $mail, $nom, $password);
+
+        $_SESSION['notif'] = 'Votre compte a été créé avec succès. Veuillez vous connecter.';
+
+        header("Location: connexion");
+        exit();
+    } else {
+        $error = "Les mots de passe ne correspondent pas.";
+    }
 }
 $titlePage = 'Inscription';
 require('views/header.php');
