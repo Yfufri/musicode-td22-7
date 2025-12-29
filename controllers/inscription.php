@@ -10,7 +10,7 @@ if ($mail != null && $password != null && $nom != null && $password_confirm != n
         require_once 'models/utilisateur.php';
         global $conn;
 
-        $result = InscriptionUser($conn, $mail, $nom, $password);
+        $result = InscriptionUser($conn, $mail, $nom, $password); //si le mail est deja dans la bdd, on n'ajoute rien et on retourne false
 
         if ($result === true) {
             $_SESSION['notif'] = 'Votre compte a été créé avec succès. Veuillez vous connecter.';

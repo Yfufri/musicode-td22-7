@@ -1,5 +1,5 @@
 <?php
-$mail = $_POST['mail'] ?? null;
+$mail = $_POST['mail'] ?? null; // reset sinon bug
 $password = $_POST['password'] ?? null;
 $error = null;
 $notif = null;
@@ -16,7 +16,7 @@ if ($mail != null && $password != null) {
     if (!empty($user)) {
         if (password_verify($password, $user['Mot_De_Passe_Utilisateur'])) {
             $_SESSION['user'] = $user;
-            header("Location: index.php?action=home");
+            header("Location: home");
             exit();
         } else {
             $error = "Adresse e-mail ou mot de passe incorrect.";

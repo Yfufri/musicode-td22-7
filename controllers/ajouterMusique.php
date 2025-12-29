@@ -1,11 +1,10 @@
-<?php
-if (!isset($_SESSION['user'])) {
+<?php // S'occupe de l'ajout des musique à la bibliotheque de l'utilisateur
+if (!isset($_SESSION['user'])) { // check si l'utilisateur est co
     header("Location: connexion");
     exit();
 }
 
 $musicId = $_POST['musicId'] ?? null;
-
 if ($musicId != null) {
     require_once 'models/musique.php';
     global $conn;

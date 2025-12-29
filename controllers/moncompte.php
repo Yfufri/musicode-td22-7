@@ -1,15 +1,12 @@
 <?php
-
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) { // check si l'utilisateur est co
     header('Location: connexion');
     exit();
 }
 
-$userId = $_SESSION['user']['Id_Utilisateur'];
-
-require_once 'models/utilisateur.php';
-
 $user = $_SESSION['user'];
+$userId = $user['Id_Utilisateur'];
+require_once 'models/utilisateur.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -18,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nouveauMdp = $_POST['nouveauMdp'] ?? '';
     $confirmMdp = $_POST['confirmMdp'] ?? '';
 
-    if (empty($nom)) {
+    if (empty($nom)) { //pour empecher d'effacer le nom et d'avoir un pseudo vide
         $errors[] = "Le nom d'affichage est obligatoire.";
     }
 
-    $updatePassword = false;
+    $updatePassword = false; //Si on essaie de modif le mdp, on check si il y a un confirm de mdp. Mais si il y a un nouveau mdp et rien en confirm de mdp, on ajoute une erreur.
     if (!empty($nouveauMdp)) {
         $updatePassword = true;
         if ($nouveauMdp !== $confirmMdp) {
@@ -33,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $success = true;
 
-        if ($nom !== $user['Nom_Utilisateur']) {
+        if ($nom !== $user['Nom_Utilisateur']) { // comme le cas où le nom est vide est deja gerer, il suffit juste de voir si le nom recup est different pour lancer la modif.
             $success = updateNomUser($conn, $userId, $nom);
             if ($success) {
                 $_SESSION['user']['Nom_Utilisateur'] = $nom;

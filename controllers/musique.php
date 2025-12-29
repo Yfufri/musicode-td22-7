@@ -1,7 +1,7 @@
 <?php
-if (!isset($_GET['id']) || empty($_GET['id'])) {
+if (!isset($_GET['id']) || empty($_GET['id'])) { //Le cas ou on a pas d'id
     $_SESSION['notif'] = "Musique introuvable.";
-    header('Location: index.php');
+    header('Location: home');
     exit();
 }
 
@@ -14,13 +14,13 @@ $userId = $isConnected ? $_SESSION['user'] : null;
 
 $musique = getOneMusic($conn, $musicId);
 
-if (!$musique) {
-    $_SESSION['notif'] = "Cette musique n'existe pas.";
+if (!$musique) { // Le cas ou on a un id, mais pas de musique associé
+    $_SESSION['notif'] = "Musique introuvable.";
     header('Location: index.php');
     exit();
 }
 
-$seconds = (int) $musique['duration'];
+$seconds = (int) $musique['duration']; //conversion des durées
 $musique['duration'] = [
     'minutes' => intdiv($seconds, 60),
     'seconds' => $seconds % 60
@@ -39,6 +39,7 @@ if ($isConnected) {
 $notif = $_SESSION['notif'] ?? null;
 unset($_SESSION['notif']);
 
+$titlePage = $musique['titre'];
 require 'views/header.php';
 require 'views/musique.php';
 require 'views/footer.php';

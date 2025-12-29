@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) { // check si l'utilisateur est co
     header('Location: connexion');
     exit();
 }
