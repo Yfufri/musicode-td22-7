@@ -9,12 +9,16 @@ if ($mail != null && $password != null && $nom != null && $password_confirm != n
     if ($password === $password_confirm) {
         require_once 'models/utilisateur.php';
         global $conn;
-        InscriptionUser($conn, $mail, $nom, $password);
 
-        $_SESSION['notif'] = 'Votre compte a été créé avec succès. Veuillez vous connecter.';
+        $result = InscriptionUser($conn, $mail, $nom, $password);
 
-        header("Location: connexion");
-        exit();
+        if ($result === true) {
+            $_SESSION['notif'] = 'Votre compte a été créé avec succès. Veuillez vous connecter.';
+            header("Location: connexion");
+            exit();
+        } else {
+            $error = "Cette adresse e-mail est déjà utilisée. Veuillez en essayer une autre.";
+        }
     } else {
         $error = "Les mots de passe ne correspondent pas.";
     }

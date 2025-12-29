@@ -32,7 +32,7 @@
     </form>
 
     <div class="txt-inscription">
-        Pas encore de compte ?<a href="?action=inscription" class="link-creation">Créer un compte</a>
+        Pas encore de compte ?<a href="inscription" class="link-creation">Créer un compte</a>
     </div>
 
 </section>

@@ -45,7 +45,7 @@
         <nav>
             <?php if (isset($_SESSION['user'])): ?>
                 <a href="home">Catalogue</a>
-                <a href="bibliotheque">Ma bibliothèque</a>
+                <a href="mabibliotheque">Ma bibliothèque</a>
                 <a href="moncompte">Mon compte</a>
                 <a href="deconnexion">Déconnexion</a>
             <?php else: ?>

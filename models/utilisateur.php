@@ -11,9 +11,8 @@ function ConnectionUser($conn, $mail)
     return $result->fetch_assoc();
 }
 
-function InscriptionUser($conn, $mail, $nom, $mdp)
+function InscriptionUser($conn, $mail, $nom, $mdp): bool
 {
-    // Vérifier si l'email existe déjà
     $sqlCheck = "SELECT Id_Utilisateur FROM utilisateur WHERE Mail_Utilisateur = ?";
     $stmtCheck = $conn->prepare($sqlCheck);
     $stmtCheck->bind_param("s", $mail);
@@ -26,7 +25,6 @@ function InscriptionUser($conn, $mail, $nom, $mdp)
     }
     $stmtCheck->close();
 
-    // Insérer le nouvel utilisateur
     $mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
     $sql = "INSERT INTO utilisateur (Nom_Utilisateur, Mail_Utilisateur, Mot_De_Passe_Utilisateur) VALUES (?,?,?);";
     $stmt = $conn->prepare($sql);

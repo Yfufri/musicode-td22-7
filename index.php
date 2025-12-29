@@ -14,7 +14,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-var_dump($_SESSION);
 $action = $_GET['action'] ?? 'home';
 switch ($action) {
     default:
@@ -23,6 +22,9 @@ switch ($action) {
         break;
     case 'inscription':
         require 'controllers/inscription.php';
+        break;
+    case 'ajouterMusique':
+        require 'controllers/ajouterMusique.php';
         break;
     case 'ajoutmusique':
         require 'controllers/ajoutmusique.php';
@@ -41,6 +43,12 @@ switch ($action) {
         break;
     case 'deconnexion':
         require 'controllers/deconnexion.php';
+        break;
+    case 'update':
+        require 'controllers/update_note.php';
+        break;
+    case 'remove':
+        require 'controllers/remove.php';
         break;
 }
 ?>
