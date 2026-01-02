@@ -24,7 +24,7 @@
 
 <body>
     <header>
-        <a href="home">
+        <a href="home" class="home">
             <div class="logo">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -39,7 +39,7 @@
                         </linearGradient>
                     </defs>
                 </svg>
-                Musicode
+                <h1>Musicode</h1>
             </div>
         </a>
         <nav>

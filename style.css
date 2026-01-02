@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Inter;
+    font-weight: 600;
 }
 
 body {
@@ -12,7 +13,6 @@ body {
 
 header {
     font-family: Inter;
-    font-size: 22.7px;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
@@ -20,8 +20,16 @@ header {
     padding: 0px 190px;
     height: 72px;
     background: linear-gradient(90deg, #7DD3FC 0%, #818CF8 100%);
-    ;
     margin-bottom: 25px;
+}
+
+.home {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 22.7px;
+    font-weight: 400;
 }
 
 h2 {
@@ -29,8 +37,9 @@ h2 {
 }
 
 .subHeading {
-    margin-left: 100px;
+    margin: 10px 0 30px 100px;
     color: #64748B;
+    font-weight: 400;
 }
 
 .logo {
@@ -92,10 +101,47 @@ nav {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 2px 2px 5px rgb(216, 216, 216);
     padding: 25px;
     border-radius: 15px;
     background-color: white;
+}
+
+.author {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 7px 0;
+}
+
+.time {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-bottom: 7px;
+}
+
+.cardBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardLink {
+    color:#0284C7;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.connectMessage {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.7rem;
 }
 
 footer {
@@ -113,6 +159,11 @@ footer {
     left: 0;
     background: white;
     z-index: 999;
+    color: #64748B;
+}
+
+footer p {
+    font-weight: 400;
 }
 
 .error-message {

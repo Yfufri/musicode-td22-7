@@ -16,7 +16,7 @@ $musique = getOneMusic($conn, $musicId);
 
 if (!$musique) { // Le cas ou on a un id, mais pas de musique associé
     $_SESSION['notif'] = "Musique introuvable.";
-    header('Location: index.php');
+    header('Location: home');
     exit();
 }
 

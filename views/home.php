@@ -13,18 +13,18 @@
         foreach ($musiques as $musique): ?>
             <div class="card">
                 <h3><?= htmlspecialchars($musique['titre']) ?></h3>
-                <p><?php echo htmlspecialchars($musique['artist']);
+                <p class="author"><?php echo htmlspecialchars($musique['artist']);
                     echo isset($musique['album']) && !empty($musique['album']) ? ' · Album : ' . htmlspecialchars($musique['album']) : '' ?></p>
-                <p>Durée : <?php echo sprintf("%02d", $musique['duration']['minutes']); ?>'<?php echo sprintf("%02d", $musique['duration']['seconds']); ?>"</p>
+                <p class="time">Durée : <?php echo sprintf("%02d", $musique['duration']['minutes']); ?>'<?php echo sprintf("%02d", $musique['duration']['seconds']); ?>"</p>
                 <div class="cardBottom">
-                    <a href="musique?id=<?= $musique['Id_Musique'] ?>">Voir la fiche</a>
+                    <a href="musique?id=<?= $musique['Id_Musique'] ?>" class="cardLink">Voir la fiche</a>
                     <?php if ($isConnected): ?>
                         <form method="POST" action="ajouterMusique" >
                             <input type="hidden" name="musicId" value="<?= $musique['Id_Musique'] ?>">
                             <button type="submit" class="btn-ajouter">Ajouter</button>
                         </form>
                     <?php else: ?>
-                        <p>Connectez-vous pour ajouter</p>
+                        <p class="connectMessage">Connectez-vous pour ajouter</p>
                     <?php endif; ?>
                 </div>
             </div>
