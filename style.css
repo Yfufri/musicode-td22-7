@@ -7,8 +7,11 @@
 }
 
 body {
+    min-height: 100vh;
     color: black;
     background-color: #F8FAFC;
+    display: grid;
+	grid-template-rows: auto 1fr auto;
 }
 
 header {
@@ -108,20 +111,19 @@ nav {
     padding: 25px;
     border-radius: 15px;
     background-color: white;
+    gap: 8px;
 }
 
 .author {
     color:#64748B;
     font-weight: 400;
     font-size: 0.9rem;
-    margin: 7px 0;
 }
 
 .time {
     color:#64748B;
     font-weight: 400;
     font-size: 0.8rem;
-    margin-bottom: 7px;
 }
 
 .cardBottom {
@@ -144,6 +146,89 @@ nav {
     font-size: 0.7rem;
 }
 
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 40%;
+    padding: 33px;
+    gap: 24px;
+    border: #E2E8F0 1px solid;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -4px rgba(0,0,0,0.1),
+                0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+section h2 {
+    margin: 0;
+}
+
+.form-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-part label {
+    font-weight: 400;
+    color: #334155;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.form-part input {
+    font-weight: 400;
+    color: #334155;
+    background-color: #E8F0FE;
+    padding: 9px 17px;
+    border-radius: 8px;
+    border: #CBD5E1 1px solid;
+}
+
+.btn-creation, .btn-connection {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.btn-connection {
+    background: #38BDF8;
+    background: linear-gradient(90deg,rgba(56, 189, 248, 1) 0%, rgba(129, 140, 248, 1) 100%);
+}
+
+.btn-creation {
+    background: #38BDF8;
+    background: linear-gradient(90deg,rgba(129, 140, 248, 1) 0%, rgba(192, 132, 252, 1) 100%);
+}
+
+.txt-inscription, .txt-connection {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.link-creation {
+    color:#0284C7;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.link-connection {
+    color:#4F46E5;
+    text-decoration: none;
+    font-weight: 400;
+}
+
 footer {
     width: 100%;
     height: 60px;
@@ -154,12 +239,10 @@ footer {
     line-height: 20px;
     text-align: center;
     vertical-align: middle;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     background: white;
     z-index: 999;
     color: #64748B;
+    margin-top: 25px;
 }
 
 footer p {
