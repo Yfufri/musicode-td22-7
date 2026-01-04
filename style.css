@@ -315,6 +315,60 @@ h3 {
     margin-top: 16px;
 }
 
+.form-pad {
+    margin-top: 12px;
+}
+
+.btn-remove {
+    padding: 5px 13px;
+    border: #FECDD3 1px solid;
+    background-color: #FFE4E6;
+    border-radius: 8px;
+    color: #BE123C;
+    font-weight: 400;
+}
+
+.btn-update {
+    padding: 5px 13px;
+    border: #F3E8FF 1px solid;
+    background-color: #E9D5FF;
+    border-radius: 8px;
+    color: #7E22CE;
+    font-weight: 400;
+}
+
+.form-update {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+
+.form-update label {
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.form-update input {
+    font-weight: 400;
+    color: #334155;
+    background-color: #FFFFFF;
+    padding: 9px 17px;
+    border-radius: 8px;
+    border: #CBD5E1 1px solid;
+}
+
+.notif {
+    width: 100%;
+    padding: 13px 17px;
+    border-radius: 8px;
+    border: #BAE6FD 1px solid;
+    background-color: #F0F9FF;
+    color: #0C4A6E;
+    font-weight: 400;
+}
+
 footer {
     width: 100%;
     height: 60px;
