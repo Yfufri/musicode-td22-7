@@ -15,6 +15,7 @@
             </div>
         <?php
         if (isset($musiques) && count($musiques) > 0):
+            ?> <div class="libraryGrid"> <?php
             foreach ($musiques as $musique): ?>
                 <div class="musicCard">
                     <div>
@@ -39,6 +40,7 @@
                     </form>
                 </div>
             <?php endforeach;
+            ?> </div> <?php
         else: ?>
             <p class="connectMessage">Votre bibliothèque est vide. <a href="home" class="link-creation">Ajoutez</a> des musiques pour commencer !</p>
         <?php endif; ?>

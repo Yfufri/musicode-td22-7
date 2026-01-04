@@ -369,6 +369,12 @@ h3 {
     font-weight: 400;
 }
 
+.libraryGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
 footer {
     width: 100%;
     height: 60px;
