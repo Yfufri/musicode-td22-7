@@ -1,6 +1,5 @@
 <main>
     <section>
-
         <h2>Connexion</h2>
 
         <?php if (isset($notif)): ?>

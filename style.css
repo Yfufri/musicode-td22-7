@@ -18,6 +18,12 @@ main {
     padding: 0 175px;
 }
 
+.grid24px {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
 header {
     font-family: Inter;
     font-weight: 600;
@@ -34,13 +40,18 @@ header {
     text-decoration: none;
 }
 
+.titleHeader {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
 h1 {
     font-size: 22.7px;
     font-weight: 400;
 }
 
 .subHeading {
-    margin: 10px 0 30px 0;
     color: #64748B;
     font-weight: 400;
 }
@@ -206,7 +217,7 @@ section h2 {
 .form-part input {
     font-weight: 400;
     color: #334155;
-    background-color: #E8F0FE;
+    background-color: #FFFFFF;
     padding: 9px 17px;
     border-radius: 8px;
     border: #CBD5E1 1px solid;
@@ -265,7 +276,6 @@ section h2 {
 .musicCard {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0 auto;
     padding: 33px;
     gap: 8px;
     border: #E2E8F0 1px solid;
@@ -299,6 +309,10 @@ h3 {
 
 .btn-pad {
     margin-top: 36px;
+}
+
+.btn-small-pad {
+    margin-top: 16px;
 }
 
 footer {
