@@ -45,9 +45,10 @@
         <nav>
             <?php if (isset($_SESSION['user'])): ?>
                 <a href="home">Catalogue</a>
+                <a href="ajoutmusique">Ajouter une musique</a>
                 <a href="mabibliotheque">Ma bibliothèque</a>
                 <a href="moncompte">Mon compte</a>
-                <a href="deconnexion">Déconnexion</a>
+                <a href="deconnexion" class="navDisconnect">Déconnexion</a>
             <?php else: ?>
                 <a href="home">Catalogue</a>
                 <a href="connexion">Connexion</a>

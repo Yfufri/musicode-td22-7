@@ -8,7 +8,7 @@
             </div>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" class="formFlex">
 
             <div class="form-part">
                 <label for="nom">Nom d'affichage</label>

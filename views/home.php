@@ -1,6 +1,17 @@
 <main>
-    <h2>Catalogue des musiques</h2>
-    <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+    <?php if ($isConnected): ?>
+        <div class="homeTopBar">
+            <div>
+                <h2>Catalogue des musiques</h2>
+                <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+            </div>
+
+            <a href="ajoutmusique" class="addMusic">+ Nouvelle Musique</a>
+        </div>
+    <?php else: ?>
+        <h2>Catalogue des musiques</h2>
+        <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+    <?php endif; ?>
 
     <?php if (isset($notif)): ?>
         <div class="notif">

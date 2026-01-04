@@ -15,7 +15,7 @@
             </div>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" class="formFlex">
 
             <div class="form-part">
                 <label for="mail">Adresse e-mail</label>

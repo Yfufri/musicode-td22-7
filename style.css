@@ -14,6 +14,10 @@ body {
 	grid-template-rows: auto 1fr auto;
 }
 
+main {
+    padding: 0 175px;
+}
+
 header {
     font-family: Inter;
     font-weight: 600;
@@ -35,12 +39,8 @@ h1 {
     font-weight: 400;
 }
 
-h2 {
-    margin-left: 100px;
-}
-
 .subHeading {
-    margin: 10px 0 30px 100px;
+    margin: 10px 0 30px 0;
     color: #64748B;
     font-weight: 400;
 }
@@ -69,37 +69,37 @@ nav a {
 nav {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
-.monCompte {
+.homeTopBar {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.monCompte input {
+.addMusic {
+    padding: 8px 16px;
+    background-color: #0284C7;
     border-radius: 8px;
-    border-color: #CBD5E1;
-}
-
-.monCompte .btnMettreAJourMDP input {
     color: white;
-    height: 40px;
-    width: 446px;
-    background: linear-gradient(90deg, #C084FC 0%, #F472B6 100%);
+    box-shadow: 0 4px 6px -4px rgba(0,0,0,0.1),
+                0 10px 15px -3px rgba(0,0,0,0.1);
+    font-weight: 500;
+    text-decoration: none;
 }
 
-.inputMdp {
-    display: block;
-}
-
-.filsInputMdp {
-    display: inline-block;
-    /*float: left;*/
+.navDisconnect {
+    background-color: #FFFFFF99;
+    border: #E2E8F0 1px solid;
+    padding: 5px 13px;
+    border-radius: 4px;
 }
 
 .gridCards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 0 100px;
     gap: 24px;
 }
 
@@ -107,7 +107,8 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 2px 2px 5px rgb(216, 216, 216);
+    box-shadow: 0 4px 6px -4px rgba(0,0,0,0.1),
+                0 10px 15px -3px rgba(0,0,0,0.1);
     padding: 25px;
     border-radius: 15px;
     background-color: white;
@@ -140,6 +141,15 @@ nav {
     text-decoration: none;
 }
 
+.btn-ajouter {
+    background-color: #E0F2FE;
+    border: #BAE6FD 1px solid;
+    padding: 5px 13px;
+    border-radius: 8px;
+    font-weight: 400;
+    color: #0369A1;
+}
+
 .connectMessage {
     color:#64748B;
     font-weight: 400;
@@ -151,7 +161,7 @@ section {
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
-    width: 40%;
+    width: 50%;
     padding: 33px;
     gap: 24px;
     border: #E2E8F0 1px solid;
@@ -160,7 +170,7 @@ section {
                 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
-form {
+.formFlex {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -174,6 +184,16 @@ section h2 {
 .form-part {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.form-part-double {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .form-part label {
@@ -190,6 +210,12 @@ section h2 {
     padding: 9px 17px;
     border-radius: 8px;
     border: #CBD5E1 1px solid;
+}
+
+.form-part p {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 .btn-creation, .btn-connection {
@@ -227,6 +253,52 @@ section h2 {
     color:#4F46E5;
     text-decoration: none;
     font-weight: 400;
+}
+
+.returnlink {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.musicCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding: 33px;
+    gap: 8px;
+    border: #E2E8F0 1px solid;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -4px rgba(0,0,0,0.1),
+                0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+.musicCardArtist {
+    color:#475569;
+    font-weight: 400;
+}
+
+.musicCardAlbum, .musicCardTime {
+    color:#64748B;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.musicCardAlbum {
+    padding-top: 16px;
+}
+
+.musicCardTime {
+    padding-top: 8px;
+}
+
+.btn-pad {
+    margin-top: 36px;
 }
 
 footer {
