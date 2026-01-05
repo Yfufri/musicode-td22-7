@@ -1,35 +1,50 @@
-    <h2>Catalogue des musiques</h2>
-    <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+<main>
+    <div class="grid24px">
+        <?php if ($isConnected): ?>
+            <div class="homeTopBar">
+                <div class="titleHeader">
+                    <h2>Catalogue des musiques</h2>
+                    <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+                </div>
 
-    <div class="gridCards">
-        <div class="card">
-            <h3>Bohemian Rhapsody</h3>
-            <p>Queen - Album : A Night In The Opera</p>
-            <p>Durée : 05"54"</p>
-            <div class="cardBottom">
-                <a href="#">Voir la fiche</a>
-                <p>Connectez-vous pour ajouter</p>
+                <a href="ajoutmusique" class="addMusic">+ Nouvelle Musique</a>
             </div>
-        </div>
+        <?php else: ?>
+            <div class="titleHeader">
+                <h2>Catalogue des musiques</h2>
+                <p class="subHeading">Découvrez les morceaux disponibles et ajoutez-les à votre bibliothèque.</p>
+            </div>
+        <?php endif; ?>
 
-        <div class="card">
-            <h3>Bohemian Rhapsody</h3>
-            <p>Queen - Album : A Night In The Opera</p>
-            <p>Durée : 05"54"</p>
-            <div class="cardBottom">
-                <a href="#">Voir la fiche</a>
-                <p>Connectez-vous pour ajouter</p>
+        <?php if (isset($notif)): ?>
+            <div class="notif">
+                <?= htmlspecialchars($notif) ?>
             </div>
-        </div>
+        <?php endif; ?>
 
-        <div class="card">
-            <h3>Bohemian Rhapsody</h3>
-            <p>Queen - Album : A Night In The Opera</p>
-            <p>Durée : 05"54"</p>
-            <div class="cardBottom">
-                <a href="#">Voir la fiche</a>
-                <p>Connectez-vous pour ajouter</p>
-            </div>
+        <div class="gridCards">
+            <?php
+            if (isset($musiques)):
+                foreach ($musiques as $musique): ?>
+                    <div class="card">
+                        <h3><?= htmlspecialchars($musique['titre']) ?></h3>
+                        <p class="author"><?php echo htmlspecialchars($musique['artist']);
+                            echo isset($musique['album']) && !empty($musique['album']) ? ' · Album : ' . htmlspecialchars($musique['album']) : '' ?></p>
+                        <p class="time">Durée : <?php echo sprintf("%02d", $musique['duration']['minutes']); ?>'<?php echo sprintf("%02d", $musique['duration']['seconds']); ?>"</p>
+                        <div class="cardBottom">
+                            <a href="musique?id=<?= $musique['Id_Musique'] ?>" class="cardLink">Voir la fiche</a>
+                            <?php if ($isConnected): ?>
+                                <form method="POST" action="ajouterMusique" >
+                                    <input type="hidden" name="musicId" value="<?= $musique['Id_Musique'] ?>">
+                                    <button type="submit" class="btn-ajouter">Ajouter</button>
+                                </form>
+                            <?php else: ?>
+                                <p class="connectMessage">Connectez-vous pour ajouter</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach;
+            endif; ?>
         </div>
     </div>
-</body>
+</main>
